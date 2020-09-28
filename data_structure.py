@@ -72,6 +72,11 @@ for inst in range(10, 1001, 10):
 size_tuple = sys.getsizeof(action)
 
 # Timeit function to get the runtime of creation
+dict_test = timeit.timeit(stmt='{1:1, 2:1, 3:1, 4:1, 5:1}', number=1000)
+list_test = timeit.timeit(stmt='[1,2,3,4,5]', number=1000)
+tuple_test = timeit.timeit(stmt='(1,2,3,4,5)', number=1000)
+
+# Create 3 plots
 data_dict = sorted(dictionary_for_dict.items())
 x, y = zip(*data_dict)
 
@@ -80,13 +85,6 @@ w, z = zip(*data_list)
 
 data_tuple = sorted(dictionary_for_tuple.items())
 s, t = zip(*data_tuple)
-
-
-dict_test = timeit.timeit(stmt='{1:1, 2:1, 3:1, 4:1, 5:1}', number=1000)
-list_test = timeit.timeit(stmt='[1,2,3,4,5]', number=1000)
-tuple_test = timeit.timeit(stmt='(1,2,3,4,5)', number=1000)
-
-# Create 3 plots
 figure = plt.figure(figsize=(21, 8))
 
 plt.subplot(131)
